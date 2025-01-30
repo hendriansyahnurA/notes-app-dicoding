@@ -69,7 +69,7 @@ class NoteApp extends React.Component {
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="32"><path d="M342.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 178.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l80 80c12.5 12.5 32.8 12.5 45.3 0l160-160zm96 128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 402.7 54.6 297.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l256-256z" fill="currentColor" /></svg>';
 
     const targetNote = this.state.notes.find((note) => note.id === id);
-    const isArsip = targetNote.arsipd;
+    const isArsip = targetNote.archived;
 
     Swal.fire({
       title: isArsip ? 'Apakah Kamu Yakin' : 'Apakah Kamu Yakin',
@@ -83,7 +83,7 @@ class NoteApp extends React.Component {
       cancelButtonText: 'Batal',
     }).then((result) => {
       if (result.isConfirmed) {
-        targetNote.arsipd = !isArsip;
+        targetNote.archived = !isArsip;
         // targetNote.arsipd == false ? (targetNote.arsipd = true) : (targetNote.arsipd = false);
         const notes = this.state.notes;
         this.setState({ notes });
