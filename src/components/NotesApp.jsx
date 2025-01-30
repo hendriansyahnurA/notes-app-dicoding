@@ -57,7 +57,7 @@ class NoteApp extends React.Component {
             title,
             body,
             createdAt: Date.now(),
-            arsipd: false,
+            archived: false,
           },
         ],
       };

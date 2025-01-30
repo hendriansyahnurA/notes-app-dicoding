@@ -1,6 +1,5 @@
 import React from 'react';
 import NotesTitleCount from './NotesTitileCount';
-import NotesBodyCount from './NotesBodyCount';
 import Swal from 'sweetalert2';
 
 class Notesinput extends React.Component {
@@ -29,13 +28,9 @@ class Notesinput extends React.Component {
   }
 
   onBodyChangeEventHandler(e) {
-    const countBody = -(e.target.value.length - 100);
-    if (countBody >= 0) {
-      this.setState({
-        body: e.target.value,
-        countBody: countBody,
-      });
-    }
+    this.setState({
+      body: e.target.value,
+    });
   }
 
   onSubmitEventHandler(e) {
@@ -67,7 +62,6 @@ class Notesinput extends React.Component {
               value={this.state.title}
               onChange={this.onTitleChangeEventHandler}
             />
-            <NotesBodyCount countBody={this.state.countBody} />
             <textarea
               className="form-control border mt-3 border-gray-300 rounded-lg w-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               type="text"
